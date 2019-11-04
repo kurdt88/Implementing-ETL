@@ -6,11 +6,15 @@
 
 -- ( Transformations Demo )--
 
-'Demo Setup Code '
+--'Demo Setup Code '
 ---------------------------------------------------------------------------------------------------------------------
 --  Create a Null Lookup table
 USE TempDB;
 go
+
+if (object_id('DWAdventureWorksLT2012Lab01') is not null) Drop DATABASE DWAdventureWorksLT2012Lab01;
+go
+
 If (object_id('ETLNullStatuses') is not null) Drop Table ETLNullStatuses;
 go
 CREATE -- Lookup Null Statuses
@@ -162,7 +166,7 @@ CONSTRAINT [pk FactSales] PRIMARY KEY
 );
 go
 
-If (object_id('vETLDimProducts') is not null) Drop Table vETLDimProducts;
+If (object_id('vETLDimProducts') is not null) Drop VIEW vETLDimProducts;
 go
 Create View vETLDimProducts
 AS
@@ -191,7 +195,7 @@ AS
 	;
 go
 
-If (object_id('vETLDimCustomers') is not null) Drop Table vETLDimCustomers;
+If (object_id('vETLDimCustomers') is not null) Drop VIEW vETLDimCustomers;
 go
 CREATE VIEW vETLDimCustomers
 AS
@@ -204,7 +208,7 @@ AS
 	;
 go
 
-If (object_id('vETLFactSales') is not null) Drop Table vETLFactSales;
+If (object_id('vETLFactSales') is not null) Drop VIEW vETLFactSales;
 go
 CREATE VIEW vETLFactSales
 AS
@@ -441,7 +445,7 @@ Select * from DimDates
 Select * from FactSales
 go
 
-'Creating ETL Scripts'
+--'Creating ETL Scripts'
 ---------------------------------------------------------------------------------------------------------------------
 
 --********************************************************************--
