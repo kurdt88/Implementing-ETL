@@ -449,6 +449,26 @@ go
 --********************************************************************--
 -- 1) Drop Foreign Keys -- NA
 -- 2) Clear Flush and Fill Tables
+--********************************************************************--
+
+ALTER TABLE dbo.FactSales DROP CONSTRAINT
+	fkFactSalesToDimProducts;
+go
+
+ALTER TABLE dbo.FactSales DROP 
+	fkFactSalesToDimCustomers;
+go
+
+ALTER TABLE dbo.FactSales DROP
+	fkFactSalesOrderDateToDimDates;
+go
+
+ALTER TABLE dbo.FactSales DROP CONSTRAINT
+	fkFactSalesShipDateDimDates;
+go
+
+
+
 Truncate Table FactSales;
 Truncate Table DimProducts;
 Truncate Table DimCustomers;
